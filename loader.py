@@ -157,24 +157,6 @@ class MoleculeDataset(InMemoryDataset):
     def process(self):
         data_smiles_list = []
         data_list = []
-        if self.dataset == 'tox21':
-            smiles_list, rdkit_mol_objs, labels = \
-                _load_tox21_dataset(self.raw_paths[0])
-            for i in range(len(smiles_list)):
-                print(i)
-                rdkit_mol = rdkit_mol_objs[i]
-                ## convert aromatic bonds to double bonds
-                # Chem.SanitizeMol(rdkit_mol,
-                # sanitizeOps=Chem.SanitizeFlags.SANITIZE_KEKULIZE)
-                data = mol_to_graph_data_obj_simple(rdkit_mol)
-                # manually add mol id
-                data.id = torch.tensor(
-                    [i])  # id here is the index of the mol in
-                # the dataset
-                data.y = torch.tensor(labels[i, :])
-                data_list.append(data)
-                data_smiles_list.append(smiles_list[i])
-
         smiles_list, rdkit_mol_objs, labels = \
             _load_dataset(self.raw_paths[0])
         for i in range(len(smiles_list)):
