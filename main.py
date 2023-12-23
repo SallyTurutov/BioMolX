@@ -236,17 +236,6 @@ def main(dataset, input_model_file, gnn_type, add_similarity, add_selfsupervise,
         specificity) + "\n" + 'Sensitivity: ' + str(sensitivity) + "\n" + "\n")
     fw.close()
 
-    # # Prediction Example:
-    # model_path = "result/Human/05 - kidney_model.pth"
-    # out_path = "result/Human/05 - kidney.txt"
-    # model = Meta_model(args).to(device)  # trying this to init optimizer and other params
-    # model = model.load_checkpoint(model_path)
-    # acc, specificity, sensitivity = model.goal_testing(all_tasks[target_idx], label_by_organism_list[target_idx])
-    # fw = open(out_path, "a")
-    # fw.write('Final Results: ' + "\n" + 'AUC: ' + str(acc) + "\n" + 'Specificity: ' + str(
-    #     specificity) + "\n" + 'Sensitivity: ' + str(sensitivity) + "\n" + "\n")
-    # fw.close()
-
 
 if __name__ == "__main__":
     # dataset, pretrained_model, graph_model, taskaware_attention, edge_pred, atom_pred, weight, #support
