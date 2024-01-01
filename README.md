@@ -1,4 +1,4 @@
-# Molecular Activity Prediction Project
+# BioMolX - Biological Complexity Curriculum Learning for Molecular Activity Prediction in Humans
 
 ## Overview
 This project contains the implementation of the model associated with the paper "Our Paper." The checkpoints for all the models presented in the paper can be found in the "results" folder.
