@@ -373,7 +373,7 @@ class GNN_graphpred(torch.nn.Module):
         self.use_translator = True
         if self.use_translator:
             print("Using organism tag.")
-            self.organism_translator = Translator()
+            self.translator = Translator()
         else:
             print("Not using organism tag.")
 
@@ -402,7 +402,7 @@ class GNN_graphpred(torch.nn.Module):
         node_representation = self.gnn(x, edge_index, edge_attr)
         pooled_representation = self.pool(node_representation, batch)
         if self.use_translator:
-            translated_representation = self.organism_translator(pooled_representation, organism_label)
+            translated_representation = self.translator(pooled_representation, organism_label)
         else:
             translated_representation = pooled_representation
 
