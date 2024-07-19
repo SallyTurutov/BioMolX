@@ -299,7 +299,8 @@ class Translator(nn.Module):
         super(Translator, self).__init__()
 
         model0 = [
-            nn.Linear(1, organism_label_embedding),
+            nn.Linear(1, 256),
+            nn.Linear(256, organism_label_embedding),
         ]
         self.model0 = nn.Sequential(*model0)
 
